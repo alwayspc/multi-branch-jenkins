@@ -17,7 +17,9 @@ pipeline{
         }
         stage('build'){
             steps{
-                sh 'mvn clean package'
+                withSonarQubeEnv('SONAR-7.1'){
+                   sh 'mvn clean package sonar:sonar'
+                }
             }
         }
         stage('archiving artifact'){
