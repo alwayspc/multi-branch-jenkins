@@ -4,7 +4,7 @@ pipeline{
         string(name: 'MAVEN', defaultValue: 'clean package', description: 'just using parameter')
     }
     triggers {
-        cron('H */4 * * 1-5')
+        cron('H * * * *')
     }
     options {
         timeout(time: 10, unit: 'MINUTES')
@@ -12,7 +12,7 @@ pipeline{
     stages{
         stage('git'){
             steps{
-                git 'https://github.com/wakaleo/game-of-life.git'
+                git branch: 'developer', url: 'https://github.com/wakaleo/game-of-life.git'
             }
         }
         stage('build'){
