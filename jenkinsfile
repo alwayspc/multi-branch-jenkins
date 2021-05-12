@@ -4,7 +4,7 @@ pipeline{
         string(name: 'MAVEN', defaultValue: 'package', description: 'just using parameter')
     }
     triggers {
-        cron('* * * * *')
+        cron('H * * * 5')
     }
     options {
         timeout(time: 10, unit: 'MINUTES')
